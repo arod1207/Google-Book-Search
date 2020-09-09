@@ -1,5 +1,5 @@
 const router = require('express').Router();
-let Book = require('../models/Books.models');
+let Book = require('../models/Books.model');
 
 router.route('/').get((req, res) => {
     Book.find()
@@ -10,10 +10,12 @@ router.route('/').get((req, res) => {
 router.route('/add').post((req, res) => {
     const title = req.body.title;
     const author = req.body.author;
+    const synopsis = req.body.synopsis;
 
     const newBook = new Book({
         title,
         author,
+        synopsis,
     });
 
     newBook
