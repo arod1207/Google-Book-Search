@@ -32,7 +32,7 @@ router.route('/add').post((req, res) => {
 
     newBook
         .save()
-        .then(() => res.json('New Book Added!'))
+        .then(() => res.redirect('/'))
         .catch((err) => res.status(400).json('Error: ' + err));
 });
 
