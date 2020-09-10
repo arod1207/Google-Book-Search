@@ -32,9 +32,11 @@ connection.once('open', () => {
 });
 
 // Use apiRoutes
-const apiRouter = require('./routes/apiRoutes');
+const bookRouter = require('./routes/bookRoutes');
+const savedBookRouter = require('./routes/savedBookRoutes');
 
-app.use('/books', apiRouter);
+app.use('/books', bookRouter);
+app.use('/saved', savedBookRouter);
 
 // Send every request to the React app
 // Define any API routes before this runs

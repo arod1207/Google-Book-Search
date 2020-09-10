@@ -3,20 +3,24 @@ import axios from 'axios';
 import SearchResults from '../SearchResults/SearchResults';
 
 function SearchBox() {
-    const [search, setSearch] = useState([]);
+    const [search, setSearch] = useState('');
+    const [books, setBooks] = useState([]);
 
     useEffect(() => {
         axios
             .get('http://localhost:3001/books')
             .then((res) => {
-                setSearch(res.data);
+                setBooks(res.data);
             })
             .catch((err) => {
                 console.log(err);
             });
-    }, [search]);
+    }, []);
+    const filter = books.filter((book) => {
+        return book.title.toLowerCase().includes(search.toLowerCase());
+    });
 
-    const results = search.map((books) => (
+    const results = filter.map((books) => (
         <SearchResults key={books._id} books={books} />
     ));
 
