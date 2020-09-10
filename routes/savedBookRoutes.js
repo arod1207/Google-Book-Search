@@ -20,14 +20,14 @@ router.route('/add').post((req, res) => {
     const authors = req.body.authors;
     const description = req.body.description;
     const link = req.body.link;
-    const thumbnail = req.body.thumbnail;
+    // const thumbnail = req.body.thumbnail;
 
     const newBook = new SavedBook({
         title,
         authors,
         description,
         link,
-        thumbnail,
+        // thumbnail,
     });
 
     newBook

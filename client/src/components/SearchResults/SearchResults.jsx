@@ -15,7 +15,7 @@ function SearchResults(props) {
                 authors: props.books.authors[0],
                 description: props.books.description,
                 link: props.books.link,
-                thumbnail: props.books.thumbnail,
+                // thumbnail: props.books.thumbnail,
             },
         });
     }
@@ -39,7 +39,7 @@ function SearchResults(props) {
                     <div className="container">
                         <div className="row">
                             <div className="col-md-2">
-                                <img src={props.books.thumbnail} alt="" />
+                                {/* <img src={props.books.thumbnail} alt="" /> */}
                             </div>
                             <div className="col-md-10">
                                 <p>{props.books.description}</p>
