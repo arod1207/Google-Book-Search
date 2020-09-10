@@ -9,8 +9,10 @@ function SearchResults(props) {
             data: {
                 id: props.books._id,
                 title: props.books.title,
-                author: props.books.author,
-                synopsis: props.books.synopsis,
+                authors: props.books.authors,
+                description: props.books.description,
+                link: props.books.link,
+                thumbnail: props.books.thumbnail,
             },
         });
     }
@@ -20,9 +22,12 @@ function SearchResults(props) {
             <ul>
                 <li>
                     <h2>{props.books.title}</h2>
-                    <h4>{props.books.author}</h4>
-                    <p>{props.books.synopsis}</p>
-                    <button>View</button>
+                    <h4>{props.books.authors}</h4>
+                    <p>{props.books.description}</p>
+                    <img src={props.books.thumbnail} alt="" />
+                    <button type="button">
+                        <a href={props.books.link}>View</a>
+                    </button>
                     <button onClick={saveBook}>Save</button>
                     <hr />
                 </li>

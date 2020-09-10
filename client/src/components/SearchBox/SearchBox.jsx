@@ -1,5 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
+import googlebooks from 'google-books-search';
+
 import SearchResults from '../SearchResults/SearchResults';
 
 function SearchBox() {
@@ -7,20 +9,21 @@ function SearchBox() {
     const [books, setBooks] = useState([]);
 
     useEffect(() => {
-        axios
-            .get('http://localhost:3001/books')
-            .then((res) => {
-                setBooks(res.data);
-            })
-            .catch((err) => {
-                console.log(err);
-            });
-    }, []);
-    const filter = books.filter((book) => {
-        return book.title.toLowerCase().includes(search.toLowerCase());
-    });
+        runSearch();
+    }, [search]);
 
-    const results = filter.map((books) => (
+    const runSearch = () => {
+        googlebooks.search(search, function (error, results) {
+            if (!error) {
+                setBooks(results);
+                console.log(results);
+            } else {
+                console.log(error);
+            }
+        });
+    };
+
+    const results = books.map((books) => (
         <SearchResults key={books._id} books={books} />
     ));
 
@@ -36,7 +39,6 @@ function SearchBox() {
                         onChange={(e) => setSearch(e.target.value)}
                     />
                 </div>
-                <button className="btn btn-primary">Submit</button>
             </form>
             {results}
         </div>
