@@ -1,6 +1,8 @@
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 
+import Swal from 'sweetalert2';
+
 function SavedPage() {
     const [SavedBooks, setSavedBooks] = useState([]);
 
@@ -16,18 +18,25 @@ function SavedPage() {
     }, []);
 
     function removeBook(id) {
-        // Issue DELETE request
         axios
             .delete(`http://localhost:3001/saved/${id}`)
             .then(() => {
-                // Issue GET request after item deleted to get updated list
-                // that excludes user of id
                 return axios.get(`http://localhost:3001/saved`);
             })
             .then((res) => {
                 setSavedBooks(res.data);
             });
     }
+
+    const alert = () => {
+        Swal.fire({
+            title: 'Success',
+            text: 'Your book was Removed!',
+            icon: 'success',
+            confirmButtonText: 'OK',
+            timer: 3000,
+        });
+    };
 
     return (
         <div className="jumbotron">
@@ -37,18 +46,26 @@ function SavedPage() {
                         <ul>
                             <li>
                                 <h2>{books.title}</h2>
-                                ate <h4>{books.authors}</h4>
+                                <h4>{books.authors}</h4>
                                 <p>{books.description}</p>
                                 <img src={books.thumbnail} alt="" />
                                 <button
                                     className="btn btn-primary m-4"
                                     type="button"
                                 >
-                                    <a href={books.link}>Buy Now</a>
+                                    <a
+                                        style={{ color: 'white' }}
+                                        href={books.link}
+                                    >
+                                        Buy Now
+                                    </a>
                                 </button>
                                 <button
                                     className="btn btn-danger"
-                                    onClick={() => removeBook(books._id)}
+                                    onClick={() => {
+                                        removeBook(books._id);
+                                        alert();
+                                    }}
                                 >
                                     Remove
                                 </button>

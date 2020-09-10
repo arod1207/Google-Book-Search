@@ -1,5 +1,9 @@
-import React from 'react';
+import React, { useState } from 'react';
 import axios from 'axios';
+
+import Swal from 'sweetalert2';
+
+import './SearchResults.css';
 
 function SearchResults(props) {
     function saveBook() {
@@ -16,6 +20,16 @@ function SearchResults(props) {
         });
     }
 
+    const alert = () => {
+        Swal.fire({
+            title: 'Success',
+            text: 'Your book was saved!',
+            icon: 'success',
+            confirmButtonText: 'OK',
+            timer: 3000,
+        });
+    };
+
     return (
         <div>
             <ul>
@@ -25,9 +39,17 @@ function SearchResults(props) {
                     <p>{props.books.description}</p>
                     <img src={props.books.thumbnail} alt="" />
                     <button className="btn btn-primary m-4" type="button">
-                        <a href={props.books.link}>View Book</a>
+                        <a style={{ color: 'white' }} href={props.books.link}>
+                            View Book
+                        </a>
                     </button>
-                    <button className="btn btn-primary" onClick={saveBook}>
+                    <button
+                        className="btn btn-primary"
+                        onClick={() => {
+                            saveBook();
+                            alert();
+                        }}
+                    >
                         Save
                     </button>
                     <hr />
