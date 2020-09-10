@@ -9,7 +9,7 @@ function SearchResults(props) {
     function saveBook() {
         axios({
             method: 'post',
-            url: 'http://localhost:3001/saved/add',
+            url: '/saved/add',
             data: {
                 title: props.books.title,
                 authors: props.books.authors[0],
