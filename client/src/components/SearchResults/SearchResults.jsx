@@ -34,24 +34,37 @@ function SearchResults(props) {
         <div>
             <ul>
                 <li>
-                    <h2>{props.books.title}</h2>
-                    <h4>{props.books.authors}</h4>
-                    <p>{props.books.description}</p>
-                    <img src={props.books.thumbnail} alt="" />
-                    <button className="btn btn-primary m-4" type="button">
-                        <a style={{ color: 'white' }} href={props.books.link}>
-                            View Book
-                        </a>
-                    </button>
-                    <button
-                        className="btn btn-primary"
-                        onClick={() => {
-                            saveBook();
-                            alert();
-                        }}
-                    >
-                        Save
-                    </button>
+                    <h2 className="title">{props.books.title}</h2>
+                    <h4 className="author">{props.books.authors}</h4>
+                    <div className="container">
+                        <div className="row">
+                            <div className="col-md-2">
+                                <img src={props.books.thumbnail} alt="" />
+                            </div>
+                            <div className="col-md-10">
+                                <p>{props.books.description}</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div className="buttons">
+                        <button className="btn btn-primary m-4" type="button">
+                            <a
+                                style={{ color: 'white' }}
+                                href={props.books.link}
+                            >
+                                View Book
+                            </a>
+                        </button>
+                        <button
+                            className="btn btn-primary"
+                            onClick={() => {
+                                saveBook();
+                                alert();
+                            }}
+                        >
+                            Save
+                        </button>
+                    </div>
                     <hr />
                 </li>
             </ul>
