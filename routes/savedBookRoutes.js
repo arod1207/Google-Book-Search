@@ -3,7 +3,7 @@ let SavedBook = require('../models/SavedBooks.model');
 
 router.route('/').get((req, res) => {
     SavedBook.find()
-        .then((books) => res.json(books))
+        .then((books) => res.send(books))
         .catch((err) => res.status(400).json('Error: ' + err));
 });
 
@@ -32,7 +32,7 @@ router.route('/add').post((req, res) => {
 
     newBook
         .save()
-        .then(() => res.redirect('/'))
+        .then(() => res.json('New Book Added!'))
         .catch((err) => res.status(400).json('Error: ' + err));
 });
 
