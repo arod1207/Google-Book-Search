@@ -9,7 +9,7 @@ function SavedPage() {
 
     useEffect(() => {
         axios
-            .get('http://localhost:3001/saved')
+            .get('/saved')
             .then((res) => {
                 setSavedBooks(res.data);
             })
@@ -20,9 +20,9 @@ function SavedPage() {
 
     function removeBook(id) {
         axios
-            .delete(`http://localhost:3001/saved/${id}`)
+            .delete(`/saved/${id}`)
             .then(() => {
-                return axios.get(`http://localhost:3001/saved`);
+                return axios.get(`/saved`);
             })
             .then((res) => {
                 setSavedBooks(res.data);
