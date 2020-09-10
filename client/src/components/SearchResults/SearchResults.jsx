@@ -39,7 +39,7 @@ function SearchResults(props) {
                     <div className="container">
                         <div className="row">
                             <div className="col-md-2">
-                                {/* <img src={props.books.thumbnail} alt="" /> */}
+                                <img src={props.books.thumbnail} alt="" />
                             </div>
                             <div className="col-md-10">
                                 <p>{props.books.description}</p>

@@ -51,7 +51,7 @@ function SavedPage() {
                                 <div className="container">
                                     <div className="row">
                                         <div className="col-md-2">
-                                            {/* <img src={books.thumbnail} alt="" /> */}
+                                            <img src={books.thumbnail} alt="" />
                                         </div>
                                         <div className="col-md-10">
                                             <p>{books.description}</p>
