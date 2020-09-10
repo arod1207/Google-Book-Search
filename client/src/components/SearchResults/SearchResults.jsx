@@ -15,7 +15,7 @@ function SearchResults(props) {
                 authors: props.books.authors[0],
                 description: props.books.description,
                 link: props.books.link,
-                // thumbnail: props.books.thumbnail,
+                thumbnail: props.books.thumbnail,
             },
         });
     }
