@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React from 'react';
 import axios from 'axios';
 
 function SearchResults(props) {
@@ -7,9 +7,8 @@ function SearchResults(props) {
             method: 'post',
             url: 'http://localhost:3001/saved/add',
             data: {
-                id: props.books._id,
                 title: props.books.title,
-                authors: props.books.authors,
+                authors: props.books.authors[0],
                 description: props.books.description,
                 link: props.books.link,
                 thumbnail: props.books.thumbnail,
@@ -25,10 +24,12 @@ function SearchResults(props) {
                     <h4>{props.books.authors}</h4>
                     <p>{props.books.description}</p>
                     <img src={props.books.thumbnail} alt="" />
-                    <button type="button">
-                        <a href={props.books.link}>View</a>
+                    <button className="btn btn-primary m-4" type="button">
+                        <a href={props.books.link}>View Book</a>
                     </button>
-                    <button onClick={saveBook}>Save</button>
+                    <button className="btn btn-primary" onClick={saveBook}>
+                        Save
+                    </button>
                     <hr />
                 </li>
             </ul>

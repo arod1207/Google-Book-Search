@@ -17,13 +17,17 @@ router.route('/:id').delete((req, res) => {
 
 router.route('/add').post((req, res) => {
     const title = req.body.title;
-    const author = req.body.author;
-    const synopsis = req.body.synopsis;
+    const authors = req.body.authors;
+    const description = req.body.description;
+    const link = req.body.link;
+    const thumbnail = req.body.thumbnail;
 
     const newBook = new SavedBook({
         title,
-        author,
-        synopsis,
+        authors,
+        description,
+        link,
+        thumbnail,
     });
 
     newBook

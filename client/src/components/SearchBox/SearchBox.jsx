@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from 'react';
-import axios from 'axios';
 import googlebooks from 'google-books-search';
 
 import SearchResults from '../SearchResults/SearchResults';
@@ -16,7 +15,6 @@ function SearchBox() {
         googlebooks.search(search, function (error, results) {
             if (!error) {
                 setBooks(results);
-                console.log(results);
             } else {
                 console.log(error);
             }
@@ -24,7 +22,7 @@ function SearchBox() {
     };
 
     const results = books.map((books) => (
-        <SearchResults key={books._id} books={books} />
+        <SearchResults key={books.id} books={books} />
     ));
 
     return (

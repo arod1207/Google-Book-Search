@@ -15,9 +15,19 @@ function SavedPage() {
             });
     }, []);
 
-    const removeBook = (id) => {
-        axios.delete(`http://localhost:3001/saved/${id}`).then((res) => {});
-    };
+    function removeBook(id) {
+        // Issue DELETE request
+        axios
+            .delete(`http://localhost:3001/saved/${id}`)
+            .then(() => {
+                // Issue GET request after item deleted to get updated list
+                // that excludes user of id
+                return axios.get(`http://localhost:3001/saved`);
+            })
+            .then((res) => {
+                setSavedBooks(res.data);
+            });
+    }
 
     return (
         <div className="jumbotron">
@@ -27,10 +37,21 @@ function SavedPage() {
                         <ul>
                             <li>
                                 <h2>{books.title}</h2>
-                                <h4>{books.author}</h4>
-                                <p>{books.synopsis}</p>
-                                <button>View</button>
-                                <button onClick={removeBook}>Remove</button>
+                                ate <h4>{books.authors}</h4>
+                                <p>{books.description}</p>
+                                <img src={books.thumbnail} alt="" />
+                                <button
+                                    className="btn btn-primary m-4"
+                                    type="button"
+                                >
+                                    <a href={books.link}>Buy Now</a>
+                                </button>
+                                <button
+                                    className="btn btn-danger"
+                                    onClick={() => removeBook(books._id)}
+                                >
+                                    Remove
+                                </button>
                                 <hr />
                             </li>
                         </ul>
