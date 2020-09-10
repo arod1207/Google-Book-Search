@@ -43,9 +43,9 @@ function SavedPage() {
         <div className="jumbotron">
             {SavedBooks.map((books) => {
                 return (
-                    <div key={books._id}>
+                    <div>
                         <ul>
-                            <li>
+                            <li key={books._id}>
                                 <h2 className="title">{books.title}</h2>
                                 <h4 className="author">{books.authors}</h4>
                                 <div className="container">
