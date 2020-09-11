@@ -30,7 +30,9 @@ function Navbar() {
                         </a>
                     </li>
                     <li className="nav-item active">
-                        <Link to="/saved">About</Link>
+                        <Link className="nav-link" to="/saved">
+                            Saved
+                        </Link>
                     </li>
                 </ul>
             </div>
