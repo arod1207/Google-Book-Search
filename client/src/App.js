@@ -22,9 +22,6 @@ function App() {
                 <Route path="/saved" exact>
                     <SavedPage />
                 </Route>
-                <Route path="/test" exact>
-                    <Test />
-                </Route>
             </div>
         </Router>
     );

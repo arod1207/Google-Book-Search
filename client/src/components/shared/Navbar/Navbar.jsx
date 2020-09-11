@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 
 function Navbar() {
     return (
@@ -29,9 +30,7 @@ function Navbar() {
                         </a>
                     </li>
                     <li className="nav-item active">
-                        <a className="nav-link" href="/saved">
-                            Saved <span className="sr-only">(current)</span>
-                        </a>
+                        <Link to="/saved">About</Link>
                     </li>
                 </ul>
             </div>
