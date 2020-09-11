@@ -8,8 +8,6 @@ import './App.css';
 import SavedPage from './components/SavedPage/SavedPage';
 import HomePage from './components/HomePage/HomePage';
 
-import Test from './components/test/test';
-
 function App() {
     return (
         <Router>
