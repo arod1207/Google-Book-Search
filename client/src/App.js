@@ -8,6 +8,8 @@ import './App.css';
 import SavedPage from './components/SavedPage/SavedPage';
 import HomePage from './components/HomePage/HomePage';
 
+import Test from './components/test/test';
+
 function App() {
     return (
         <Router>
@@ -19,6 +21,9 @@ function App() {
                 </Route>
                 <Route path="/saved" exact>
                     <SavedPage />
+                </Route>
+                <Route path="/test" exact>
+                    <Test />
                 </Route>
             </div>
         </Router>
