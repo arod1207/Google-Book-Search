@@ -18,6 +18,7 @@ function SearchResults(props) {
                 thumbnail: props.books.thumbnail,
             },
         });
+        console.log('book added');
     }
 
     const alert = () => {
