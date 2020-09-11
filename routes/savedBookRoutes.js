@@ -2,9 +2,13 @@ const router = require('express').Router();
 let SavedBook = require('../models/SavedBooks.model');
 
 router.route('/').get((req, res) => {
+    console.log('saved end point');
     SavedBook.find()
         .then((books) => res.send(books))
-        .catch((err) => res.status(400).json('Error: ' + err));
+        .catch((err) => {
+            console.log('err saving book');
+            res.status(400).json('Error: ' + err);
+        });
 });
 
 router.route('/:id').delete((req, res) => {
