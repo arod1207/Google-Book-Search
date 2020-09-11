@@ -66,6 +66,7 @@ function SavedPage() {
                                         <a
                                             style={{ color: 'white' }}
                                             href={books.link}
+                                            target="_blank"
                                         >
                                             Buy Now
                                         </a>

@@ -52,6 +52,7 @@ function SearchResults(props) {
                             <a
                                 style={{ color: 'white' }}
                                 href={props.books.link}
+                                target="_blank"
                             >
                                 View Book
                             </a>

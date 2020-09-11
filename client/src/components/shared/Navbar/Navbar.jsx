@@ -4,9 +4,9 @@ import { Link } from 'react-router-dom';
 function Navbar() {
     return (
         <nav className="navbar navbar-expand-lg navbar-light bg-light">
-            <a className="navbar-brand" href="/">
+            <Link className="nav-link" to="/">
                 Google Book Search
-            </a>
+            </Link>
             <button
                 className="navbar-toggler"
                 type="button"
@@ -25,9 +25,9 @@ function Navbar() {
             >
                 <ul className="navbar-nav mr-auto">
                     <li className="nav-item active">
-                        <a className="nav-link" href="/">
+                        <Link className="nav-link" to="/">
                             Search <span className="sr-only">(current)</span>
-                        </a>
+                        </Link>
                     </li>
                     <li className="nav-item active">
                         <Link className="nav-link" to="/saved">
